@@ -1,11 +1,17 @@
-s1 = []
-s1.append("Data structure")  # push
-s1.append("Database")
-print(s1[-1])  # peek
-print(s1)
-print(s1.pop())  # pop
-print(s1)
-print(s1.pop())  # pop
-print(s1)
-print(s1.pop())  # IndexError: pop from empty list
-print(s1)
+def is_valid_parentheses(expression : str) -> bool: #bool = return type
+    stack = list()
+    for letter in expression:
+        if letter == "(":
+            stack.append(letter)
+        if letter == ")":
+            if len(stack) == 0:
+                return False
+            else:
+                stack.pop()
+
+    return len(stack) == 0
+
+print(is_valid_parentheses(")(1+2))"))
+print(is_valid_parentheses("(1+2))"))
+print(is_valid_parentheses("(1+2)"))
+print(is_valid_parentheses("((3*2)/2)"))
